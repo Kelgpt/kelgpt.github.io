@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>
+      Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml.
+      It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    </title>
+    <meta name="generator" content="Jekyll v4.3.3" />
+    <meta property="og:title" content="Your awesome title" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+    />
+    <meta
+      property="og:description"
+      content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+    />
+    <link rel="canonical" href="http://localhost:4000/" />
+    <meta property="og:url" content="http://localhost:4000/" />
+    <meta property="og:site_name" content="Your awesome title" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Your awesome title" />
+    <link href="/assets/stylesheets/home-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/global-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/hero-image-slider.css" rel="stylesheet" />
+    {% include link.html %}
+    <script src="/assets/scripts/hero-image-slide.js" defer></script>
+    
+    
+  </head>
+  <body>
+      {% include header.html %} 
+      {%include hero-image.html%}
+     <!-- CONTENT -->
+    <section class="content-container">
+      <!-- LATEST REVIEW CONTAINER [NEED TO COMBINE THIS TWO INTO 1 PART]-->
+      <header class="top-section-container">
+        <h2>Latest Reviewed Product</h2>
+      </header>
+      <div class="latest-review-container">
+        <!-- top SECTION OF LATEST REVIEW -->
+        <section class="top-review-container">
+          {% assign reversed_posts = site.product | sort: 'date' | reverse %}
+          {% for post in reversed_posts limit:1 %}         
+          <a href="{{ post.url }}" class="top-review-link">
+            <article class="top-review-wrapper">              
+              {% if post.categories %}
+              {% assign primary_category = post.categories[1] %}
+              <div class="category-label">{{ primary_category | upcase }}</div>
+              {% endif %}
+              <figure class="top-review-image">
+                <img data-src="{{ post.image_url }}" src="" alt="{{ post.title }}" class="lazy responsive-image" />
+                <div class="top-review-text">
+                  <h3>{{ post.title | upcase }}  : {{ post.excerpt | upcase | strip_html }}</h3>
+                </div>
+              </figure>          
+            </article>
+          </a>
+          {% endfor %}
+        </section>
+      <!-- END OF top LATEST REVIEW --> 
+      <!-- bottom PART LATEST REVIEW -->
+      <section class="bottom-review-container">    
+        {% for post in reversed_posts offset:1 limit:6 %}
+          <a href="{{ post.url }}" class="bottom-review-link">     
+            <div class="bottom-review-wrapper">
+              {% if post.categories %}
+              {% assign primary_category = post.categories[1] %}
+              <div class="category-label">{{ primary_category | upcase }}</div>
+              {% endif %}                
+              <figure class="bottom-review-image">
+                <img data-src="{{ post.image_url }}" src="" alt="{{ post.title }}" class="lazy responsive-image" />
+              </figure>
+              <div class="bottom-review-text">
+                <h3>{{ post.title | capitalize }}</h3>
+              </div>                     
+            </div>    
+          </a>          
+        {% endfor %}
+      </section>
+     <a href="/equipment" class="check-more">Check More!</a>          
+      <!-- END OF bottom LATEST REVIEW -->
+      </div>
+        <!-- END OF LATEST REVIEW -->
+      <!-- BLOG CONTAINER-->
+      <header class="top-section-container">
+        <h2>Recent Blogs</h2>
+      </header>
+      <div class="blog-container">
+        <section class="top-review-container">        
+        {% assign reversed_posts = site.blog | reverse %} 
+          {% for post in reversed_posts limit:1 %}
+          <a href="{{ post.url }}" class="top-review-link">
+            <article class="top-review-wrapper">
+              {% if post.categories %}
+              {% assign primary_category = post.categories[1] %}
+              <div class="category-label">{{ primary_category | upcase }}</div>
+              {% endif %}  
+              <figure class="top-review-image">
+                <img data-src="{{ post.image_url }}" src="" alt="{{ post.title }}" class="lazy responsive-image" />
+                <div class="top-review-text">
+                  <h3>{{ post.title | upcase }}  : {{ post.excerpt | upcase | strip_html }}</h3>
+                </div>
+              </figure>          
+            </article>
+          </a>
+          {% endfor %}
+          </section>
+          <section class="bottom-review-container">    
+            {% for post in reversed_posts offset:1 limit:6 %}
+              <a href="{{ post.url }}" class="bottom-review-link">     
+                <div class="bottom-review-wrapper">
+                  {% if post.categories %}
+                  {% assign primary_category = post.categories[1] %}
+                  <div class="category-label">{{ primary_category | upcase }}</div>
+                  {% endif %}                 
+                  <figure class="bottom-review-image">
+                    <img data-src="{{ post.image_url }}" src="" alt="{{ post.title }}" class="lazy responsive-image" />
+                  </figure>
+                  <div class="bottom-review-text">
+                    <h3>{{ post.title | capitalize }} : {{ post.excerpt }}</h3>
+                  </div>                     
+                </div>    
+              </a>          
+            {% endfor %}
+          </section>
+          <a href="/blog" class="check-more">Check More!</a>  
+      </div>       
+      <!-- END OF BLOG CONTAINER-->
+      <button>❤like</button>
+      <article></article>
+      <aside></aside>      
+    </section>    
+    {% include footer.html %}
+  </body>  
+</html>

@@ -1,0 +1,59 @@
+{% if page.search-bar-type == "equipment" %}
+<aside class="search-bar">
+     <a href="/equipment/racket" class="search-bar-button"><div class="search-bar-button-text">RACKET</div></a>
+    <a href="/equipment/shuttlecock" class="search-bar-button"><div class="search-bar-button-text">SHUTTLECOCK</div></a>
+
+   </aside>
+{% endif %}
+{% if page.url contains '/racket/' %}
+<aside class="search-bar">
+    <a href="/equipment/racket" class="search-bar-button"><div class="search-bar-button-text">ALL BRANDS</div></a>
+    {% assign selected_brand = nil %}
+    {% for brand in site.data.rackets %}
+        {% if page.url contains brand[0] %}
+            {% assign selected_brand = brand %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if selected_brand %}
+        {% for model in selected_brand[1]['models'] %}
+            <a href="/equipment/racket/{{ selected_brand[0] }}/{{ model.url }}" class="search-bar-button {% if page.url contains model.url %}active{% endif %}">
+                <div class="search-bar-button-text">{{ model.name | upcase }}</div>
+            </a>
+        {% endfor %}
+    {% else %}
+        {% for brand in site.data.rackets %}
+            <a href="/equipment/racket/{{ brand[0] }}" class="search-bar-button {% if page.url contains brand[0] %}active{% endif %}">
+                <div class="search-bar-button-text">{{ brand[0] | upcase }}</div>
+            </a>
+        {% endfor %}
+    {% endif %}
+</aside>
+{% endif %}
+
+{% if page.url contains '/shuttlecock/' %}
+<aside class="search-bar">
+    
+    <a href="/equipment/shuttlecock" class="search-bar-button"><div class="search-bar-button-text">ALL BRANDS</div></a>
+    {% assign selected_brand = nil %}
+    {% for brand in site.data.shuttlecocks %}
+        {% if page.url contains brand[0] %}
+            {% assign selected_brand = brand %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if selected_brand %}
+        {% for model in selected_brand[1] %}
+            <a href="/equipment/shuttlecock/{{ selected_brand[0] }}/{{ model.url }}" class="search-bar-button {% if page.url contains model.url %}active{% endif %}">
+                <div class="search-bar-button-text">{{ model.name | upcase }}</div>
+            </a>
+        {% endfor %}
+    {% else %}
+        {% for brand in site.data.shuttlecocks %}
+            <a href="/equipment/shuttlecock/{{ brand[0] | downcase | replace: '-', '' }}" class="search-bar-button {% if page.url contains brand[0] %}active{% endif %}">
+                <div class="search-bar-button-text">{{ brand[0] | upcase }}</div>
+            </a>
+        {% endfor %}
+    {% endif %}
+</aside>
+{% endif %}

@@ -1,0 +1,19 @@
+yonex:
+  image-url: "/assets/images/a.png"
+  models:
+    - name: "Astrox"
+      url: "astrox"
+    - name: "Nanoflare"
+      url: "nanoflare"
+lining:
+  image-url: "/assets/images/b.png"
+  models:
+    - name: "Turbocharging"
+      url: "turbocharging"
+victor:
+  image-url: "/assets/images/c.png"
+  models:
+    - name: "Jetspeed"
+      url: "jetspeed"
+    - name: "Bravesword"
+      url: "bravesword"

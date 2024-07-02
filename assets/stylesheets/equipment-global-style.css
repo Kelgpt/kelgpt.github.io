@@ -1,0 +1,61 @@
+/* Ynx Vctr Lnng */
+:root{
+  --equipment-grid-content-text-color:black;  
+}
+.body {
+  content: "";
+  display: table;
+  clear: both;
+  max-width: 1440px;
+}
+.equipment-body-section {
+  width: 65%;
+  margin: 0 auto;
+  position: relative;    
+}
+
+/* equipment-racket section */
+
+.search-product-container{
+  display: flex; 
+  gap: 50px;
+}
+
+.equipment-grid-content-section {  
+  width: 100%;  
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px; 
+  padding: 20px; /* Add some padding to ensure there is space around the grid items */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+.equipment-grid-content-section a{
+  text-decoration: none;
+}
+.equipment-grid-content-wrapper {
+  display: flex;
+  width: 100%; /* Ensure each grid item takes full width of the grid column */
+  max-width: 300px; /* Optional: Set a max width for grid items if needed */
+  height: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--equipment-grid-content-text-color);  
+  text-align: center;
+  box-shadow: transparent;
+  transition: box-shadow 0.1s ease;
+}
+.equipment-grid-content-wrapper:hover{   
+  box-shadow: 0 0 5px rgb(0, 0, 0,0.3); /* Apply shadow to all sides */
+}
+
+.equipment-grid-content-image {  
+  width: 100%;
+  height: 90%;
+}
+.equipment-grid-content-text {
+  height: 10%;
+  width: 100%;  
+}

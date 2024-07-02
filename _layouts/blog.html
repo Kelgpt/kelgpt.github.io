@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>
+      Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml.
+      It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    </title>
+    <meta name="generator" content="Jekyll v4.3.3" />
+    <meta property="og:title" content="Your awesome title" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+    />
+    <meta
+      property="og:description"
+      content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+    />
+    <link rel="canonical" href="http://localhost:4000/" />
+    <meta property="og:url" content="http://localhost:4000/" />
+    <meta property="og:site_name" content="Your awesome title" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Your awesome title" />
+    <link href="/assets/stylesheets/search-bar.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/global-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/blog-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/hero-image-slider.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/cloud-categories.css" rel="stylesheet" />
+    
+    {% include link.html %}
+    <script src="/assets/scripts/hero-image-slide.js" defer></script>
+  
+  </head>
+  <body>
+    {% include header.html %}
+    
+    <section class="hero-image-container">
+      {%include hero-image.html%}
+    </section>
+    <div class="body-container">
+      <section class="category-cloud">
+        {%include blog-cloud-categories.html%}
+      </section>
+      <div class="title-wrapper">
+        <h2>ARTICLES</h2>
+      </div>
+      <article class="blogpost-body">
+        {% for post in paginator.posts%}
+        <a href="{{ post.url }}" class="blogpost-link">
+          <div class="blogspot-content-wrapper">
+            {% if post.categories %}
+            {% assign primary_category = post.categories[1] %}
+            <div class="category-label">{{ primary_category | upcase }}</div>
+            {% endif %}
+            <figure class="blogspot-content-image lazy">
+              <img src="{{ post.image_url }}" alt="{{ post.title }}" class="responsive-image" />
+            </figure>
+            <div class="blogspot-content-text">
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.excerpt }}</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </article>
+      
+      <!-- 
+    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+  -->
+  {% if paginator.total_pages > 1 %}
+  <ul class="pager">
+      {% if paginator.previous_page %}
+      <li class="previous">
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+      </li>
+      {% endif %}
+      {% if paginator.next_page %}
+      <li class="next">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      </li>
+      {% endif %}
+  </ul>
+  {% endif %}
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

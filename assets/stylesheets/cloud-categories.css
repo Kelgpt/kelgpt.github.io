@@ -1,0 +1,21 @@
+.cloud-categories-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.cloud-categories-content {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 60%;
+    gap: 10px;
+}
+.button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+}

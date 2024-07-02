@@ -1,0 +1,14 @@
+<!-- athlete -->
+{% assign category = page.athlete-category %}
+{% if site.data.players[category] %}
+  {% for slide in site.data.players[category] %}
+    <div class="brands-athlete-wrapper">
+      <div class="brands-athlete-image">
+        <img src="{{ slide.image }}" alt="{{ slide.name }}" class="responsive-image">
+      </div>
+      <div class="brands-athlete-text">{{ slide.name }} {{ slide.country }}</div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No athletes found for this category.</p>
+{% endif %}

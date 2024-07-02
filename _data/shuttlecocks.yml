@@ -1,0 +1,11 @@
+yonex:
+  - name: "Feather"
+    url: "feather"
+  - name: "Nylon"
+    url: "nylon"
+
+victor:
+  - name: "Feather"
+    url: "feather"
+  - name: "Nylon"
+    url: "nylon"

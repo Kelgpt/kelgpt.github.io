@@ -1,0 +1,59 @@
+:root{
+  --blogspot-content-text-color:black;
+  --blogspot-content-text-color-hover:orangered;
+}
+.body-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.title-wrapper{
+  text-align: center;
+}
+/* BLOGPOST */
+.blogpost-body {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  gap: 20px; /* Changed from grid-gap to gap */
+  align-items: center;
+}
+
+.blogpost-link {
+  display: flex;
+  width: 60%; /* Set width according to your layout needs */
+  text-decoration: none;
+  color: inherit;
+}
+
+.blogspot-content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  flex-direction: row;
+  position: relative;
+  color: var(--blogspot-content-text-color);
+}
+.blogspot-content-wrapper:hover{
+  color: var(--blogspot-content-text-color-hover);
+}
+.blogspot-content-image {
+  width: 40%;
+  height: 100%;
+
+}
+
+.blogspot-content-text {
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;  
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.blogspot-content-text h3,
+.blogspot-content-text p {
+  margin: 0;
+}

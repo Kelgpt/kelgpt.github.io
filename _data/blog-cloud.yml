@@ -1,0 +1,11 @@
+nav_links:
+  - name: "all"
+    url: "/blog"
+  - name: "news"
+    url: "/blog/news"
+  - name: "guides"
+    url: "/blog/guides"
+  - name: "reviews"
+    url: "/blog/reviews"  
+     
+    

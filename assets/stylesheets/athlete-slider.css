@@ -1,0 +1,57 @@
+/* CSS for Athlete Section */
+.brands-athlete-container {
+    position: relative;
+  }
+  
+  .athlete-content-wrapper {
+      display: flex;      
+      width: 100%; /* Adjust this if needed */
+       }
+  
+  .brands-athlete-wrapper {
+      width: 25%; /* Each item takes up 25% of the container width */
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0; /* Prevent items from shrinking */
+  }
+  
+  .brands-athlete-image {
+      width: 80%;
+      height: 80%;
+      
+      object-fit: cover; /* Ensure the image covers the entire container without stretching */
+    }
+  
+  .brands-athlete-image img {    
+      max-width: 100%; /* Ensures the image scales properly within its container */
+      /* height: auto; Maintains the aspect ratio */
+    }
+  
+  .brands-athlete-text {
+      width: 80%;
+      height: 20%;
+      background-color: blue;
+  }
+  
+  .athlete-slider-arrow {
+      font-size: 2rem;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      position: absolute;
+      top: 50%; /* Adjusts the vertical position to the middle */
+      transform: translateY(-50%); /* Centers the arrow vertically */
+  }
+  
+  .athlete-slider-left-arrow {
+      left: 0;
+  }
+  
+  .athlete-slider-right-arrow {
+      right: 0;
+  }
+  

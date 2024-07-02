@@ -1,0 +1,43 @@
+updates:
+home:
+  slides:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"
+    button: "check now" 
+    url: "/racket/yonex/astrox/astroxXX22-copy-2/"   
+  - image: "/assets/images/pepsi.webp"
+    name: "An Se Young"
+    country: "Korea"  
+racket:
+  slides:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"
+ 
+    
+shuttlecock:
+  slides:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"
+  - image: "/assets/images/a.png"
+    name: "An Se Young"
+    country: "Korea"
+yonex:
+  slides:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"
+
+victor:
+  slides:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"
+
+lining:
+  slides:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"

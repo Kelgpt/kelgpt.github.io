@@ -1,0 +1,9 @@
+    <div class="cloud-categories-container">
+    <div class="cloud-categories-content">
+        {% for link in site.data.blog-cloud.nav_links %}
+            <a href="{{ link.url }}" class="button">{{ link.name | capitalize}} </a>
+        {% endfor %}     
+    </div>
+    </div>
+
+

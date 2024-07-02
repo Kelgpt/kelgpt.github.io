@@ -1,0 +1,26 @@
+yonex:
+  - image: "/assets/images/a.png"
+    name: "Viktor Axelsen"
+    country: "Denmark"
+  - image: "/assets/images/a.png"
+    name: "An Se Young"
+    country: "Korea"
+  - image: "/assets/images/a.png"
+    name: "Akane Yamaguchi"
+    country: "Japan"
+  - image: "/assets/images/a.png"
+    name: "Chen Yu Fei"
+    country: "China"
+  - image: "/assets/images/a.png"
+    name: "Chen Yu Fei"
+    country: "China"
+
+victor:
+  - image: "/assets/images/a.png"
+    name: "Lee zi jia"
+    country: "Malaysia" 
+
+lining:
+  - image: "/assets/images/a.png"
+    name: "yuta watanabe"
+    country: "japan" 

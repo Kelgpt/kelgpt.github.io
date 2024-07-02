@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>
+      Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml.
+      It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    </title>
+    <meta name="generator" content="Jekyll v4.3.3" />
+    <meta property="og:title" content="Your awesome title" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+    />
+    <meta
+      property="og:description"
+      content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+    />
+    <link rel="canonical" href="http://localhost:4000/" />
+    <meta property="og:url" content="http://localhost:4000/" />
+    <meta property="og:site_name" content="Your awesome title" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Your awesome title" />
+    <link href="/assets/stylesheets/search-bar.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/global-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/equipment-global-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/athlete-slider.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/hero-image-slider.css" rel="stylesheet" /> 
+    {% include link.html %}
+    <script src="/assets/scripts/athlete-slider.js" defer></script>
+    <script src="/assets/scripts/hero-image-slide.js" defer></script>    
+
+  </head>
+  <body>
+    {% include header.html %}
+
+    {%include hero-image.html%}   
+    <section class="equipment-body-section"> 
+      <section class="brands-athlete-container">
+        <div class="athlete-slider-arrow athlete-slider-left-arrow">&#8249;</div>
+        <div class="athlete-content-wrapper">
+      {%include athletes-slider.html%}
+      </div>
+      <div class="athlete-slider-arrow athlete-slider-right-arrow">&#8250;</div>
+    </section>
+     <!--product search-->     
+      <div class="search-product-container">      
+      {%include search_bar.html%}     
+      <!-- products -->
+      <div class="equipment-pagination-section">
+      <section class="equipment-grid-content-section">
+      {% for product in paginator.posts %}
+      <a href="{{ product.url }}">
+      <div class="equipment-grid-content-wrapper">
+        <figure class="equipment-grid-content-image responsive-image">
+          <!-- Image with lazy loading -->
+        <img  data-src="{{ product.image_url }}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBA==" alt="{{ product.title }}" class="lazy responsive-image"/>
+        </figure>
+        <div class="equipment-grid-content-text">{{ product.title | capitalize}} </div>
+      </div>
+    </a>
+      {% endfor %}   
+    </section>
+         <!-- 
+    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+  -->
+  {% if paginator.total_pages > 1 %}
+  <ul class="pager">
+      {% if paginator.previous_page %}
+      <li class="previous">
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+      </li>
+      {% endif %}
+      {% if paginator.next_page %}
+      <li class="next">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      </li>
+      {% endif %}
+  </ul>
+  {% endif %}
+
+  <p class="rss-subscribe">subscribe<a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  </div>
+</div>
+  
+</section>  
+  <h2>Debug Information</h2>
+  <p>Total products in collection: {{ site.product | size }}</p>
+  <p>Products in current page: {{ paginator.posts | size }}</p>
+  <p>Total pages: {{ paginator.total_pages }}</p>
+  <p>Total posts: {{ paginator.total_posts }}</p>
+    {% include footer.html %}
+  </body>
+</html>

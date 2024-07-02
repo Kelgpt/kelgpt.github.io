@@ -1,0 +1,50 @@
+{% assign category = page.hero-image-category | downcase %}
+{% assign slides = site.data.hero-images[category].slides %}
+{% if slides %}
+    <div class="hero-image-slider-container">
+        <div class="carousel-arrow carousel-left-arrow">&#8249;</div>
+        <div class="hero-image-slider responsive-image lazy">
+            {% for slide in slides %}            
+            <div class="hero-image-slide">
+                <img src="{{ slide.image }}" alt="{{ slide.name }}">
+                {% if slide.button %}
+                <a href="{{ slide.url }}" class="button-4" role="button">{{ slide.button | upcase }} </a>
+                {% endif %}
+                <div class="caption">
+                    <h2>{{ slide.name }}</h2>
+                    <p>{{ slide.country }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="carousel-arrow carousel-right-arrow">&#8250;</div>
+        
+    </div>
+    <div class="carousel-dots">
+        <!-- Dots will be generated here -->
+    </div>
+    
+{% endif %}
+
+
+{% if page.hero-image == "blog" %}
+<div class="hero-image-slider-container">
+    <div class="carousel-arrow carousel-left-arrow">&#8249;</div>
+    <div class="hero-image-slider">
+        {% assign reversed_posts = site.blog | reverse %}{% for slide in reversed_posts %}
+        <div class="hero-image-slide">
+            <img src="{{ slide.image_url }}" alt="{{ slide.title }}">
+            <div class="caption">
+                <h2>{{ slide.title }}</h2>                
+            </div>
+        </div>                  
+        {% endfor %}
+    </div>
+    <div class="carousel-arrow carousel-right-arrow">&#8250;</div>
+    
+</div>
+<div class="carousel-dots">
+    <!-- Dots will be generated here -->
+</div>
+{% endif %}
+
