@@ -101,6 +101,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  bundle lock --add-platform x86_64-linux
 
 DEPENDENCIES
   base64
@@ -121,4 +122,4 @@ DEPENDENCIES
 
 BUNDLED WITH
    2.5.10
-bundle lock --add-platform x86_64-linux
+
