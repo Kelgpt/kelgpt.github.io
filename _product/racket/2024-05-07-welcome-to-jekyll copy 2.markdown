@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "astrox"
-date: 2024-05-06
+date: '2024-05-20'
 categories: [racket,yonex,astrox]
 image_url: /assets/images/a.png
 ---
