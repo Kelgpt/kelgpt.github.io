@@ -1,7 +1,7 @@
 ---
 title: pepek
 layout: post
-date: '2024-05-10'
+date: '2024-05-15'
 categories: [blog,news]
 image_url: "/assets/images/a.png"
 ---
