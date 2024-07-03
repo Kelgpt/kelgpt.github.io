@@ -26,8 +26,17 @@ jobs:
         with:
           ruby-version: '3.1'
 
+      - name: Cache Gems
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
       - name: Install dependencies
         run: |
+          bundle config set path 'vendor/bundle'
           bundle install --jobs 4 --retry 3
           bundle lock --add-platform x86_64-linux
 
