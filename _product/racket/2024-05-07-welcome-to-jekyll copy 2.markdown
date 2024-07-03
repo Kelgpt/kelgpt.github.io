@@ -3,7 +3,7 @@ layout: post
 title: "astrox"
 date: '2024-05-20'
 categories: [racket,yonex,astrox]
-image_url: /assets/images/a.png
+image_url: "/assets/images/a.png"
 ---
 
 # Welcome to jekyll
