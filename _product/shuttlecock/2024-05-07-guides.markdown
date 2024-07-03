@@ -1,8 +1,8 @@
 ---
-title: anjeng
+title: shuttlejeng
 layout: post
 date: '2024-05-15'
-categories: [racket,yonex,astrox]
+categories: [shuttlecock,yonex,feather]
 image_url: "/assets/images/a.png"
 ---
 
