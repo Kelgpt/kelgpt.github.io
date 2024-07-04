@@ -90,7 +90,7 @@
         <!-- END OF LATEST REVIEW -->
       <!-- BLOG CONTAINER-->
       <header class="top-section-container">
-        <h2>Recent Blogs</h2>
+        <h2>Recent Articles</h2>
       </header>
       <div class="blog-container">
         <section class="top-review-container">        
@@ -112,18 +112,18 @@
           </a>
           {% endfor %}
           </section>
-          <section class="bottom-review-container">    
+          <section class="blog-bottom-review-container">    
             {% for post in reversed_posts offset:1 limit:6 %}
-              <a href="{{ post.url }}" class="bottom-review-link">     
-                <div class="bottom-review-wrapper">
+              <a href="{{ post.url }}" class="blog-bottom-review-link">     
+                <div class="blog-bottom-review-wrapper">
                   {% if post.categories %}
                   {% assign primary_category = post.categories[1] %}
                   <div class="category-label">{{ primary_category | upcase }}</div>
                   {% endif %}                 
-                  <figure class="bottom-review-image">
+                  <figure class="blog-bottom-review-image">
                     <img data-src="{{ post.image_url }}" src="" alt="{{ post.title }}" class="lazy responsive-image" />
                   </figure>
-                  <div class="bottom-review-text">
+                  <div class="blog-bottom-review-text">
                     <h3>{{ post.title | capitalize }} : {{ post.excerpt }}</h3>
                   </div>                     
                 </div>    
