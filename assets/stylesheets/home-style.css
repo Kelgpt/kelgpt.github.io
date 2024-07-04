@@ -185,11 +185,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 65%;
+  height: 55%;
 }
 
 .blog-bottom-review-text {  
-  height: 35%;
+  height: 45%;
   text-align: center;
   align-items: center;
   background-color: var(--bottom-review-text-background-color);
