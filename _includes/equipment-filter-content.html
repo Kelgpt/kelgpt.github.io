@@ -1,0 +1,109 @@
+{% assign current_url = page.url %}
+<aside class="filter-bar">
+  <!-- Filter options for Desktop (Racket and Shuttlecock) -->
+  {% if page.filter-bar-type == "equipment" %} {% for equipment in
+  site.data.filter-bar-data.equipments %}
+  <a href="/equipment/{{ equipment[0] }}" class="filter-bar-button">
+    <div class="filter-bar-button-text">{{ equipment[0] | capitalize }}</div>
+  </a>
+  {%endfor%} {% endif %}
+  <!-- Dynamic filtering based on the equipment type -->
+  {% for equipment_type in site.data.filter-bar-data.equipments %}
+  <!-- Check if the current URL contains the equipment type (racket,  , etc.) -->
+  {% if current_url contains equipment_type[0] %}
+
+  <!-- Filter bar for All BRANDS -->
+  <a href="/equipment/{{ equipment_type[0] }}" class="filter-bar-button">
+    <div class="filter-bar-button-text">All Brands</div>
+  </a>
+
+  {% assign selected_brand = nil %}
+  <!-- Loop through brands of the selected equipment type -->
+  {% for brand in equipment_type[1] %} {% if current_url contains brand[0] %} {%
+  assign selected_brand = brand %} {% endif %} {% endfor %}
+
+  <!-- Display models under the selected brand -->
+  {% if selected_brand %} {% for model in selected_brand[1].models %}
+  <a
+    href="/equipment/{{ equipment_type[0] }}/{{ selected_brand[0] }}/{{ model.url }}"
+    class="filter-bar-button {% if current_url contains model.url %}active{% endif %}"
+  >
+    <div class="filter-bar-button-text">{{ model.name | capitalize }}</div>
+  </a>
+  {% endfor %} {% else %}
+  <!-- Display all brands for the selected equipment type -->
+  {% for brand in equipment_type[1] %}
+  <a
+    href="/equipment/{{ equipment_type[0] }}/{{ brand[0] }}"
+    class="filter-bar-button {% if current_url contains brand[0] %}active{% endif %}"
+  >
+    <div class="filter-bar-button-text">{{ brand[0] | capitalize }}</div>
+  </a>
+  {% endfor %} {% endif %} {% endif %} {% endfor %}
+  <!-- Mobile Filter Dropdown -->
+  <div class="mobile-filter-dropdown">
+    <!-- Mobile dropdown button -->
+    <button onclick="toggleDropdown()">
+      {% if page.filter-bar-type == "equipment" %}
+      <div class="filter-bar-button-text">All {{page.filter-bar-type}}</div>
+      {% endif %} {% assign selected_brand = nil %} {% assign selected_model =
+      nil %} {% if page.filter-bar-type == "equipment" %} {% for equipment in
+      site.data.filter-bar-data.equipments %}
+      <a href="/equipment/{{ equipment[0] }}" class="filter-bar-button">
+        <div class="filter-bar-button-text">
+          {{ equipment[0] | capitalize }}
+        </div>
+      </a>
+      {%endfor%} {% endif %}
+      <!-- Loop through the equipment to find the selected type -->
+      {% for equipment_type in site.data.filter-bar-data.equipments %} {% if
+      current_url contains equipment_type[0] %}
+      <!-- Loop through brands to find the selected brand -->
+      {% for brand in equipment_type[1] %} {% if current_url contains brand[0]
+      %} {% assign selected_brand = brand %}
+      <!-- Loop through models to find the selected model -->
+      {% for model in brand[1].models %} {% if current_url contains model.url %}
+      {% assign selected_model = model %} {% endif %} {% endfor %} {% endif %}
+      {% endfor %}
+
+      <!-- Display the selected brand/model in the button -->
+      {% if selected_model %} All {{ selected_model.name | capitalize }} {%
+      elsif selected_brand %} All {{ selected_brand[0] | capitalize }} {% else
+      %} All {{ equipment_type[0] | capitalize }} {% endif %} {% endif %} {%
+      endfor %}
+    </button>
+
+    <!-- Dropdown content for mobile -->
+    <div id="dropdownContent" class="mobile-filter-dropdown-content">
+      {% if page.filter-bar-type == "equipment" %} {% for equipment in
+      site.data.filter-bar-data.equipments %}
+      <a href="/equipment/{{ equipment[0] }}" class="filter-bar-button">
+        <div class="filter-bar-button-text">
+          {{ equipment[0] | capitalize }}
+        </div>
+      </a>
+      {%endfor%} {% endif %} {% for equipment_type in
+      site.data.filter-bar-data.equipments %} {% if current_url contains
+      equipment_type[0] %}
+      <!-- Display all brands and models in dropdown -->
+      {% for brand in equipment_type[1] %}
+      <a
+        href="/equipment/{{ equipment_type[0] }}/{{ brand[0] }}"
+        class="filter-bar-button {% if current_url contains brand[0] %}active{% endif %}"
+      >
+        <div class="filter-bar-button-text">{{ brand[0] | capitalize }}</div>
+      </a>
+
+      <!-- If a brand is selected, display the models in the dropdown -->
+      {% if current_url contains brand[0] %} {% for model in brand[1].models %}
+      <a
+        href="/equipment/{{ equipment_type[0] }}/{{ brand[0] }}/{{ model.url }}"
+        class="filter-bar-button {% if current_url contains model.url %}active{% endif %}"
+        style="background-color: rgba(240, 240, 240, 0.452)"
+      >
+        <div class="filter-bar-button-text">{{ model.name | capitalize }}</div>
+      </a>
+      {% endfor %} {% endif %} {% endfor %} {% endif %} {% endfor %}
+    </div>
+  </div>
+</aside>

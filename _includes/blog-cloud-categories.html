@@ -1,0 +1,11 @@
+<section class="cloud-categories-container">
+  <div class="cloud-categories-content">
+    {% for cloud-category in site.data.blog-cloud.nav_links %}
+    <a href="{{ cloud-category.url }}" class="cloud-categories-button"
+      ><h3 style="font-weight: 100">
+        {{ cloud-category.name | capitalize}}
+      </h3></a
+    >
+    {% endfor %}
+  </div>
+</section>

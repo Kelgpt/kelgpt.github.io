@@ -1,0 +1,75 @@
+name: Full Site Rebuild
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Information
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Branch name: ${{ github.ref }}"
+          echo "Workflow triggered at: $(date -u)"
+          echo "Repository: ${{ github.repository }}"
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Install Node.js and npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          bundle config set --local path 'vendor/bundle'
+          bundle install --verbose
+
+      - name: Cleanup before build
+        run: |
+          rm -rf _site
+          bundle exec jekyll clean
+
+      - name: Build site
+        run: |
+          echo "Starting Jekyll build..."
+          bundle exec jekyll build
+          echo "Jekyll build completed"
+
+      - name: Verify Netlify CLI
+        run: |
+          npm install -g netlify-cli
+          npx netlify -v
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "Error: NETLIFY_AUTH_TOKEN is not set"
+            exit 1
+          fi
+          if [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "Error: NETLIFY_SITE_ID is not set"
+            exit 1
+          fi
+          echo "Starting Netlify deployment..."
+          npx netlify deploy --dir=_site --prod --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
+          echo "Netlify deployment completed"
+
+      - name: Workflow Status
+        if: always()
+        run: |
+          echo "Workflow completed at: $(date -u)"
+          echo "Final status: ${{ job.status }}"

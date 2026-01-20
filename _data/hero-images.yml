@@ -1,0 +1,25 @@
+updates:
+home:
+  slides:
+    - image: "/assets/images/about-us-home.webp"
+      caption: "check on how our site works"
+      caption-style: "style-default"
+      button: "check now"
+      url: "/about-us"
+
+equipment:
+  slides:
+    - image: "/assets/hero-images/GettyImages-1790909997.jpg"
+      caption-style: "style1"
+      caption: "Equipment"
+
+racket:
+  slides:
+    - image: "/assets/hero-images/GettyImages-1790909997.jpg"
+      caption-style: "style1"
+      caption: "Racket"
+
+shuttlecock:
+  slides:
+    - image: "/assets/hero-images/GettyImages-1790909997.jpg"
+      caption-style: "style1"

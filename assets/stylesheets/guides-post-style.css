@@ -1,0 +1,45 @@
+.page-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content-ads-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.guides-strapline-content {
+  margin: 10px 0 10px 0;
+}
+
+.page-article-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+h2,
+h3 {
+  margin: 10px 0 0 0 !important;
+}
+p {
+  margin: 2px 0 10px 0 !important;
+}
+@media (max-width: 1024px) {
+  .ads-section {
+    display: none !important;
+  }
+  .page-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+  }
+}
+/* Show the hamburger icon on smaller screens */
+@media (max-width: 768px) {
+}
+/* Mobile adjustments (for devices up to 480px) */
+@media (max-width: 480px) {
+}

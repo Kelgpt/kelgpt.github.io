@@ -1,0 +1,54 @@
+<a href="{{ post.url }}" class="bottom-review-wrapper">
+  {% if post.categories %} {% assign primary_category = post.categories[0] %}
+  <div class="category-label">{{ primary_category | upcase }}</div>
+  {% endif %}
+  <figure
+    class="bottom-review-image {% if post.categories contains 'racket' %}racket{% endif %}"
+  >
+    <img
+      src="/assets/images/placeholder.webp"
+      data-src="{{ post.thumbnail }}"
+      alt="{{ post.title }}"
+      class="lazy responsive-image-cover"
+      onerror="this.src='/assets/images/placeholder.webp';"
+    />
+  </figure>
+  <article class="bottom-review-content">
+    <h3 class="bottom-review-text-title">{{ post.title | capitalize }}</h3>
+    <section class="bottom-review-author-date-container">
+      <div class="bottom-review-author-wrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          width="16"
+          height="16"
+          fill="currentColor"
+        >
+          <path
+            d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm89.6 32h-8.7c-21.8 10.3-46 16-72.9 16s-51.1-5.7-72.9-16h-8.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+          />
+        </svg>
+        <p class="bottom-review-author-text">{{post.author | capitalize}}</p>
+      </div>
+      <div class="bottom-review-date-wrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          width="16"
+          height="16"
+          fill="currentColor"
+        >
+          <path
+            d="M152 64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H80V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H32C14.3 96 0 110.3 0 128v320c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32h-16V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H320V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H152V64zM32 160h384v64H32V160zm0 128h384v160H32V288z"
+          />
+        </svg>
+        <p class="bottom-review-date-text">
+          {{ post.date | date: "%Y-%b-%d " }}
+        </p>
+      </div>
+    </section>
+    <p class="bottom-review-content-description">
+      {{post.description | capitalize}}
+    </p>
+  </article>
+</a>

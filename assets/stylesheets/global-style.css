@@ -1,0 +1,956 @@
+:root {
+  --primary-color: #008b47;
+  --secondary-color: #6bb64a;
+  --background-color: rgb(245, 245, 245);
+  --header-color: rgb(255, 255, 255);
+  --header-text-color: #ffffff;
+  --header-nav-button-color: #3a3a3a;
+  --hamburger-color: #3a3a3a;
+  --bottom-border-color: #6bb64a;
+  --title-font-size: 1em;
+  --title-wrapper-color: #008b47;
+  --hero-image-button-background-color: white;
+  --hero-image-button-background-text-color: #3a3a3a;
+  --top-review-background-color: rgba(29, 29, 29, 0.8);
+  --top-category-label: #6bb64a;
+  --top-category-label-text: white;
+  --top-review-text-color: white;
+  --top-review-text-color-hover: #6bb64a;
+  --bottom-review-text-color: #3a3a3a;
+  --bottom-review-text-color-hover: #6bb64a;
+  --bottom-review-text-background-color: inherit;
+  --checkmore-background-color: rgb(243, 243, 243);
+  --checkmore-background-color-hover: #6bb64a;
+  --checkmore-border-color: #6bb64a;
+  --read-more-background-color: inherit;
+  --read-more-background-color-hover: #6bb64a;
+  --equipment-grid-content-text-color: #3a3a3a;
+  --sub-menu-dropdown-content-background-color: #ebebeb;
+  --daily-tips-color: rgb(207, 207, 207);
+  --footer-background-color: rgb(243, 243, 243);
+  --footer-nav-color: #3a3a3a;
+  --hr-line-color: #6bb64a;
+}
+
+*,
+*:before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+.roboto-font {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/**
+ * Reset some basic elements
+ */
+body,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+img,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  font-family: "signika", sans-serif; /* You can customize this to your preferred font */
+  font-weight: bold; /* Ensures the headings are bold */
+}
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "roboto", sans-serif; /* You can customize this to your preferred font */
+  /* Ensures the headings are bold */
+}
+h1 {
+  font-size: 2em; /* Largest heading */
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5em; /* Second largest */
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.17em; /* Third largest */
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1em; /* Fourth largest */
+  line-height: 1.5;
+}
+
+h5 {
+  font-size: 0.83em; /* Fifth largest */
+  line-height: 1.6;
+}
+
+h6 {
+  font-size: 0.67em; /* Smallest heading */
+  line-height: 1.7;
+}
+p {
+  line-height: 1.5;
+}
+.responsive-image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire slide area */
+}
+
+.responsive-image-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the image covers the entire slide area */
+}
+.page-container {
+  height: 100%;
+  min-height: 600px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+}
+
+/* HEADER */
+.header-logo {
+  width: 250px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.header-nav-button {
+  padding: 37px 16px; /* Add some padding for better spacing */
+  position: relative; /* Required for the pseudo-element */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.equipment-nav-button {
+  margin-left: 0;
+}
+.header-container {
+  width: 100%;
+  z-index: 10000;
+  margin: 0 auto;
+  background-color: var(--header-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.header-container a {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--header-nav-button-color);
+  font-family: "signika";
+}
+.main-header-nav-container {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  max-width: 1000px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header-nav-container-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-height: 100px;
+  height: 100%; /* Ensure the container uses the full height */
+}
+
+.main-header-nav-container-right {
+  display: flex;
+  align-items: center;
+  max-height: 100px;
+  height: 100%; /* Ensure the container uses the full height */
+}
+.dekstop-dropdown-content-image {
+  width: 150px;
+  height: 100px;
+}
+.dekstop-dropdown-content-image-racket {
+  object-position: 105%;
+}
+/* Navigation Links */
+
+/* nav a:visited {
+  color: #1098ad;
+} */
+
+.bottom-border {
+  border: 2px solid transparent;
+}
+
+/* Pseudo-element for the blue line */
+.bottom-border::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Spans the full width of the container */
+  height: 2px; /* Height of the blue line */
+  background-color: var(--bottom-border-color); /* Color of the line */
+  transform: scaleX(0); /* Initially hides the line */
+  transition: transform 0.3s ease; /* Adds a transition effect */
+}
+
+.bottom-border:hover::after,
+.dekstop-dropdown-container:hover .dekstop-dropdown-button::after {
+  transform: scaleX(1); /* Shows the line on hover */
+}
+
+/* DROPDOWN-CONTENT*/
+.dekstop-dropdown-content-container {
+  display: block; /* Make sure the container is always in the document flow */
+  position: absolute;
+  background-color: var(--header-color);
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  opacity: 0; /* Initially invisible */
+  z-index: 10000;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease; /* Add transition for smooth animation */
+}
+.dekstop-dropdown-container:hover .dekstop-dropdown-content-container {
+  max-height: 500px;
+  opacity: 1;
+}
+.dekstop-dropdown-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  gap: 50px;
+}
+.dekstop-dropdown-content-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.dekstop-dropdown-content-text {
+  position: relative;
+}
+.dekstop-dropdown-content-text::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--bottom-border-color);
+  transform: scaleX(0);
+  opacity: 0; /* Hide the pseudo-element completely */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Add opacity to the transition */
+}
+
+.dekstop-dropdown-content-wrapper:hover .dekstop-dropdown-content-text::after {
+  transform: scaleX(1);
+  opacity: 1; /* Show the pseudo-element */
+}
+
+#overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
+}
+
+/* FOOTER */
+.footer-container {
+  width: 100%;
+  background-color: var(--footer-background-color);
+  color: var(--footer-nav-color);
+}
+.footer-logo {
+  width: 250px;
+  height: 100px;
+  object-fit: cover;
+}
+.footer-container a {
+  color: var(--footer-nav-color);
+  text-decoration: none;
+}
+.footer-nav-button {
+  padding: 10px 0 10px 0; /* Add some padding for better spacing */
+  position: relative; /* Required for the pseudo-element */
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.footer-nav-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer-nav-container-Top {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+.social-media-container {
+  display: flex;
+  flex-direction: row;
+}
+.icon-svg-fb {
+  fill: #3b5998;
+}
+.icon-svg-x {
+  fill: #000;
+}
+.icon-svg-tiktok {
+  fill: #af1836;
+}
+
+.footer-nav-container-middle {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.footer-nav-container-left {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.footer-nav-container-right {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* TITLE WRAPPER */
+.home-category-wrapper,
+.title-wrapper-section,
+.title-wrapper-section h1 {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--title-wrapper-color) !important;
+}
+
+/* PAGINATION CSS ON EQUIPMENT */
+.pager {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  justify-content: flex-end;
+  align-items: center;
+}
+.paginator-num {
+  padding: 10px;
+  text-decoration: none;
+  font-size: large;
+  user-select: none;
+}
+.paginator-arrow {
+  padding: 10px;
+  text-decoration: none;
+  font-size: x-large;
+  user-select: none;
+}
+.paginator-link {
+  content: "";
+  text-decoration: none;
+  color: black;
+  user-select: none;
+}
+.paginator-num.active {
+  background-color: black;
+}
+.paginator-num.active .paginator-link {
+  color: white;
+}
+/* POST CATEGORIES label */
+.category-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--top-category-label);
+  color: var(--top-category-label-text);
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1;
+}
+/* POST SECTIONS */
+.post-author-date-container {
+  display: flex;
+  gap: 20px;
+}
+.post-author-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.post-date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+/* READ-MORE */
+.read-more-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.read-more-title {
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+.read-more-grid-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr; /* Ensures all rows have the same height */
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.read-more-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  text-decoration: none;
+  position: relative;
+  background-color: var(--read-more-background-color);
+  color: inherit;
+  transition: 0.3s ease;
+}
+.read-more-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 75%;
+}
+.read-more-text {
+  height: 25%;
+  text-align: center;
+  flex-direction: column;
+}
+
+.read-more-wrapper:hover {
+  color: var(--read-more-background-color-hover);
+}
+
+/* BREADCRUMB */
+.breadcrumbs {
+  margin-bottom: 30px !important;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: var(--header-nav-button-color);
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+  color: var(--header-nav-button-color);
+}
+.main-header-mobile-button {
+  display: none;
+  padding-left: 10px;
+}
+/* Hamburger icon */
+.hamburger-icon {
+  display: flex;
+  position: relative;
+  border: 0;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for the whole container */
+  background-color: inherit;
+}
+.hamburger-icon span {
+  height: 4px;
+  width: 100%;
+  background-color: var(--hamburger-color);
+  mix-blend-mode: difference;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Smooth transition for each line */
+}
+.hamburger-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 5px); /* Top line becomes a diagonal line */
+}
+
+.hamburger-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -5px); /* Bottom line becomes a diagonal line */
+}
+
+/* MENU FOR MOBILE */
+.mobile-menu-container {
+  position: fixed; /* Ensure the menu is always visible and on top */
+  top: 100px;
+  left: 0;
+  height: 100%; /* Full height for a vertical side menu */
+  width: 0; /* Start fully collapsed */
+  overflow-y: hidden; /* Hide the content when collapsed */
+  background-color: var(--header-color); /* Your menu's background color */
+  transition: width 0.3s ease; /* Smooth transition for width */
+  z-index: 10000; /* Ensure it stays on top of other elements */
+}
+.mobile-menu-container.show {
+  width: 80%;
+}
+
+/* Dropdown container */
+.sub-menu-dropdown-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Dropdown header styles */
+.sub-menu-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures button and text stay aligned */
+  width: 100%;
+}
+.sub-menu-dropdown-header a {
+  padding-left: 20px;
+}
+/* sub menu link */
+.sub-menu-dropdown-link {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: left;
+  align-items: center;
+}
+
+/* sub menu button */
+.sub-menu-dropdown-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+  padding: 0;
+  width: 100%;
+  max-width: 40px;
+  height: 60px;
+}
+
+/* sub menu content (hidden by default) */
+.sub-menu-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--sub-menu-dropdown-content-background-color);
+  z-index: 1000;
+  padding: 0 10px;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease,
+    padding 0.3s ease;
+}
+
+.sub-menu-dropdown-content a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* Show dropdown when active */
+.sub-menu-dropdown-content.show {
+  max-height: 500px; /* Adjust this to a value larger than your expected content height */
+  opacity: 1;
+  visibility: visible;
+  padding: 10px;
+}
+
+.sub-menu-dropdown-content.show a {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* CALL TO ACTION LINK */
+.cta-link {
+  color: var(--secondary-color);
+  padding: 5px;
+}
+.cta-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--header-text-color);
+  text-decoration: none;
+  border-radius: 5px;
+}
+/* General styles for ad containers */
+.ad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2; /* Light gray background */
+  border: 1px solid #ccc; /* Border to define the ad space */
+  margin: 10px auto; /* Centered with some margin */
+  text-align: center;
+  color: #333; /* Text color */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+/* Styles for specific ad sizes */
+.ad-Leaderboard {
+  width: 728px;
+  height: 90px;
+}
+.ad-Billboard {
+  width: 970px;
+  height: 250px;
+}
+.ad-Wide-Skyscraper {
+  width: 160px;
+  height: 600px;
+}
+.ad-Half-Page {
+  width: 300px;
+  height: 600px;
+}
+.ad-Medium-Rectangle {
+  width: 300px;
+  height: 250px;
+}
+.ad-Mobile-Banner {
+  width: 320px;
+  height: 50px;
+}
+.ad-Large-Mobile-Banner {
+  width: 320px;
+  height: 100px;
+}
+
+.no-recent-text {
+  text-align: center;
+  grid-column: 1/-1;
+}
+.equipment-grid-content-section .no-recent-text {
+  grid-column: 3/4;
+}
+/* Optional - add responsiveness for smaller screens */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--dark-background-color);
+    --header-color: #1d1d1d;
+    --header-nav-button-color: #ffffff;
+    --hamburger-color: #c3c3c3;
+    --bottom-review-text-background-color: inherit;
+    --checkmore-background-color: #3a3a3a;
+    --checkmore-background-color-hover: #6bb64a;
+    --footer-background-color: #1d1d1d;
+    --footer-nav-color: #ffffff;
+
+    --dark-background-color: #131313;
+
+    --hero-image-button-background-color: white;
+    --hero-image-button-background-text-color: #1a1a1a;
+    --top-review-background-color: rgba(29, 29, 29, 0.8);
+
+    --top-category-label-text: white;
+    --top-review-text-color: white;
+
+    --bottom-review-text-color: #3a3a3a;
+
+    --read-more-background-color: inherit;
+
+    --equipment-grid-content-text-color: #3a3a3a;
+    --sub-menu-dropdown-content-background-color: #ebebeb;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: var(--header-nav-button-color);
+  }
+  .footer-nav-container hr {
+    border-color: #dad9d9;
+  }
+  .icon-svg-fb {
+    fill: #5485f0;
+  }
+  .icon-svg-x {
+    fill: #aaaaaa;
+  }
+  .icon-svg-tiktok {
+    fill: #ff0033;
+  }
+  .post-author-wrapper {
+    color: white;
+  }
+  .post-date-wrapper {
+    color: white;
+  }
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 1.5em; /* Slightly smaller on mobile */
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  h4 {
+    font-size: 0.9em;
+  }
+
+  h5 {
+    font-size: 0.8em;
+  }
+
+  h6 {
+    font-size: 0.7em;
+  }
+
+  p {
+    font-size: 1em; /* Keep paragraph text legible */
+  }
+  .header-container {
+    width: 100%;
+    z-index: 10000;
+    margin: 0 auto;
+    background-color: var(--header-color);
+  }
+
+  .main-header-nav-container {
+    display: flex;
+    justify-content: space-between; /* Ensures there’s space between left and right containers */
+    align-items: center;
+    width: 100%;
+  }
+  .main-header-nav-container-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-nav-container {
+    padding: 20px;
+  }
+  .no-recent-text {
+    grid-column: 2/3;
+  }
+  .equipment-grid-content-section .no-recent-text {
+    grid-column: 2/3;
+  }
+}
+/* Show the hamburger icon on smaller screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5em; /* Slightly smaller on mobile */
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+  }
+
+  h4 {
+    font-size: 0.9em;
+  }
+
+  h5 {
+    font-size: 0.8em;
+  }
+
+  h6 {
+    font-size: 0.7em;
+  }
+
+  p {
+    font-size: 1em; /* Keep paragraph text legible */
+  }
+  .main-header-mobile-button {
+    display: block;
+  }
+  .header-container {
+    width: 100%;
+    z-index: 10000;
+    margin: 0 auto;
+    background-color: var(--header-color);
+    object-fit: contain;
+  }
+  .main-header-nav-container {
+    display: flex;
+    justify-content: space-between; /* Ensures there’s space between left and right containers */
+    align-items: center;
+    width: 100%;
+  }
+  .main-header-nav-container-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo {
+    width: 200px;
+
+    position: absolute; /* Make the logo position absolute to move it to the center */
+    left: 50%;
+    transform: translateX(
+      -50%
+    ); /* Adjust it back by 50% to align it properly */
+  }
+  .breadcrumbs {
+    display: none;
+  }
+  .header-nav-button {
+    display: none;
+  }
+
+  .footer-nav-button {
+    margin-right: 0;
+  }
+  .footer-nav-container-Top {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-nav-container-middle {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-nav-container-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+  .footer-nav-container-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+  .main-header-nav-container-right {
+    display: none;
+  }
+
+  .read-more-grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .no-recent-text {
+    grid-column: 1 / 3;
+  }
+  .equipment-grid-content-section .no-recent-text {
+    grid-column: 1/3;
+  }
+}
+
+/* Mobile adjustments (for devices up to 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4em; /* Further reduce for small screens */
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  h4 {
+    font-size: 0.85em;
+  }
+
+  h5 {
+    font-size: 0.75em;
+  }
+
+  h6 {
+    font-size: 0.65em;
+  }
+
+  p {
+    font-size: 0.9em; /* Reduce but maintain legibility */
+  }
+
+  .footer-nav-button {
+    margin-right: 0;
+  }
+  .footer-nav-container-Top {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-nav-container-middle {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-nav-container-left {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-nav-container-right {
+    flex-direction: column;
+    align-items: center;
+  }
+  .read-more-grid-section {
+    grid-template-columns: auto;
+  }
+}

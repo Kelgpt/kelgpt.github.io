@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head-content.html %} {% include global-link.html %}
+    <link href="/assets/stylesheets/about-post.css" rel="stylesheet" />
+  </head>
+  <body>
+    {% include header.html %}
+    <div class="page-content">
+      <figure class="about-us-image">
+        <img
+          src="/assets/images/logo/racket-review-logo.webp"
+          alt="racket-review-about-us-image"
+          class="responsive-image-contain"
+        />
+      </figure>
+      {% assign parts = content | split: "<!-- ABOUT-US -->" %}{% assign
+      parts_about_us = parts[1] | split: "<!-- DATA-GATHER -->" %} {% assign
+      parts_data_gather = parts_about_us[1] | split: "<!-- CONTACT -->" %} {%
+      assign about-us = parts_about_us[0] %}{% assign data-gather =
+      parts_data_gather[0] %} {% assign contact_us = parts_data_gather[1] %}
+
+      <div class="about-us-wrapper">
+        <h1 class="about-us-title">About Us</h1>
+        <hr class="about-us-hr" />
+        <div class="about-us-content">{{ about-us }}</div>
+      </div>
+      <div class="data-gather-wrapper">
+        <h1 class="about-us-title">How do we gather our data?</h1>
+        <hr class="about-us-hr" />
+        <div class="about-us-content">{{ data-gather }}</div>
+      </div>
+      <div class="contact-us-wrapper">
+        <h1 class="about-us-title">Contact Us</h1>
+        <hr class="about-us-hr" />
+        <div class="contact-us-content">{{ contact_us }}</div>
+      </div>
+    </div>
+    {%include footer.html %}
+  </body>
+</html>

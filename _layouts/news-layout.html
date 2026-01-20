@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head-content.html %}
+    <link href="/assets/stylesheets/blog-layout-style.css" rel="stylesheet" />
+    <link href="/assets/stylesheets/cloud-categories.css" rel="stylesheet" />
+    {% include global-link.html %}
+  </head>
+  <body>
+    {% include header.html %}
+
+    <div class="page-container">
+      <div class="title-wrapper-section">
+        <h1>RECENT NEWS</h1>
+      </div>
+
+      <div class="news-ads-body">
+        <article class="news-content">
+          {% if paginator.posts.size > 0 %}{% for post in paginator.posts%} {%
+          if post.date <= site.time %}
+          <a href="{{ post.url }}" class="news-content-wrapper">
+            {%include blogpost-posts.html%}
+          </a>
+          <hr class="news-hr" />
+          {% endif %} {% endfor %} {% else %}
+          <p class="no-recent-text">No recent posts available.</p>
+          {% endif %} {% include paginator-num.html %}
+        </article>
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

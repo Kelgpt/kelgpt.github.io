@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head-content.html %}
+    <link href="/assets/stylesheets/home-layout-style.css" rel="stylesheet" />
+    {% include global-link.html %}
+  </head>
+  <body>
+    {% include header.html %} {%include hero-image.html%}
+    <!-- CONTENT -->
+    <div class="page-content">
+      <div class="full-content">
+        <!-- LATEST REVIEW CONTAINER -->
+        <header class="home-category-wrapper">
+          <h1>LATEST REVIEWED PRODUCT</h1>
+          <hr class="home-hr" />
+        </header>
+
+        <!-- bottom PART LATEST REVIEW -->
+        <article class="bottom-review-container-product">
+          {% assign reversed_posts = site.product | sort: 'date' | reverse %} {%
+          for post in reversed_posts limit:4 %} {% if post.date <= site.time %}
+          {%include home-bottom-review.html%}{% endif %}{% else %}
+          <p class="no-recent-text">No recent posts available.</p>
+          <!-- end of bottom PART LATEST REVIEW -->
+          {% endfor %}
+        </article>
+
+        <a href="/equipment" class="check-more"><p>Check More!</p></a>
+        <!-- END OF LATEST REVIEW -->
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

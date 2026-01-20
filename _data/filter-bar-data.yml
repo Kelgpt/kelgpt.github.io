@@ -1,0 +1,15 @@
+equipments:
+  racket:
+    yonex:
+      image-url: "/assets/images/a.png"
+      models:
+        - name: "Astrox"
+          url: "astrox"
+
+  shuttlecock:
+    yonex:
+      models:
+        - name: "Feather"
+          url: "feather"
+        - name: "Nylon"
+          url: "nylon"

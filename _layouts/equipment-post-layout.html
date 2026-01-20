@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head-content.html %}
+    <link
+      href="/assets/stylesheets/equipment-post-style.css"
+      rel="stylesheet"
+    />
+    {% include global-link.html %}
+  </head>
+  <body>
+    {% assign parts = content | split: "<!-- DESCRIPTION -->" %} {% assign
+    parts_description = parts[1] | split: "<!-- TABLE -->" %} {% assign
+    parts_table = parts_description[1] | split: "<!-- SHORT_REVIEW -->" %} {%
+    assign parts_short_review = parts_table[1] | split: "<!-- COMPLETE_REVIEW -->"
+    %} {% assign parts_complete_review = parts_short_review[1] | split: "<!-- VERDICT -->"
+    %} {% assign parts_verdict = parts_complete_review[1] | split: "<!-- REFERENCES -->"
+    %} {% assign description = parts_description[0] %} {% assign table_content =
+    parts_table[0] %} {% assign short_review = parts_short_review[0] %} {%
+    assign complete_review = parts_complete_review[0] %} {% assign verdict =
+    parts_verdict[0] %} {% assign references = parts_verdict[1] %} {% include
+    header.html %}
+
+    <div class="page-content">
+      <div class="breadcrumbs" style="margin: 25px 0 0 0">
+        {% include breadcrumbs.html%}
+      </div>
+      <!-- Image and Specifications Section -->
+
+      <section class="title-image-section">
+        <div class="title-specification-section">
+          <h1 class="post-title">{{ page.title }}</h1>
+          <section class="post-author-date-container">
+            <span class="post-author-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                width="16"
+                height="16"
+                fill="currentColor"
+              >
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm89.6 32h-8.7c-21.8 10.3-46 16-72.9 16s-51.1-5.7-72.9-16h-8.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                />
+              </svg>
+              <span class="post-author-text">{{page.author | capitalize}}</span>
+            </span>
+            <span class="post-date-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                width="16"
+                height="16"
+                fill="currentColor"
+              >
+                <path
+                  d="M152 64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H80V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H32C14.3 96 0 110.3 0 128v320c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32h-16V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H320V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H152V64zM32 160h384v64H32V160zm0 128h384v160H32V288z"
+                />
+              </svg>
+              <span class="post-author-date">
+                {{ page.date | date: "%Y-%b-%d " }}
+              </span>
+            </span>
+          </section>
+          <div class="post-description">{{ description }}</div>
+        </div>
+
+        <figure class="post-image">
+          <img
+            src="{{ page.image_url}}"
+            alt="{{ product.title }}"
+            class="responsive-image-contain"
+          />
+        </figure>
+      </section>
+
+      <!-- Pros and Short Review Section -->
+
+      <div class="full-content-ads-section">
+        <article class="pros-short-complete-section">
+          <!-- <div class="ad-container">
+            <img
+              src="https://via.placeholder.com/300x250"
+              alt="Ad Placeholder"
+              style="width: 100%; height: 300px"
+            />
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3335560316738673"
+              crossorigin="anonymous"
+            ></script>
+             leaderboard 
+            <ins
+              class="adsbygoogle"
+              style="display: block"
+              data-ad-client="ca-pub-3335560316738673"
+              data-ad-slot="9361555163"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div> -->
+          <h3 class="details-section">PRODUCT OVERVIEW</h3>
+          <table class="specification-content">
+            <tbody>
+              {{ table_content }}
+            </tbody>
+          </table>
+          <!-- <div class="pros-short-section">
+            <section class="pros-cons-section">
+              <section class="pros-section">
+                <header class="pros-title-plus-icon">
+                  <img
+                    src="/assets/images/review-content-images/pros.webp"
+                    alt="pros-section"
+                  />
+                  <h2 class="pros-title">Pros</h2>
+                </header>
+                <ul>
+                  {% for pros in page.pros %}
+                  <li>{{ pros }}</li>
+                  {% endfor %}
+                </ul>
+              </section>
+
+              <section class="cons-section">
+                <header class="cons-title-plus-icon">
+                  <img
+                    src="/assets/images/review-content-images/cons.webp"
+                    alt="cons-section"
+                  />
+                  <h2 class="cons-title">Cons</h2>
+                </header>
+                <ul>
+                  {% for cons in page.cons %}
+                  <li>{{ cons }}</li>
+                  {% endfor %}
+                </ul>
+              </section>
+            </section>
+
+            <!-- <section class="short-review-section">
+              <header>
+                <h2 class="short-review-title">Short Review</h2>
+              </header>
+              {{ short_review }}
+            </section> -->
+          </div> -->
+
+          <!-- Complete Review Section -->
+          <!-- <article class="complete-review-section">
+            <header class="section-title">
+              <h2>COMPLETE REVIEW</h2>
+            </header>
+            {{ complete_review }}
+          </article> -->
+          <!-- verdict and links -->
+
+          <!-- <article class="verdict-links-readmore-section">
+            <section class="verdict-section">
+              <header class="section-title">
+                <h2>VERDICT</h2>
+              </header>
+              {{ verdict }}
+            </section>
+             <div class="ad-container">
+               Placeholder in case the ad doesn't load 
+              <img
+                src="https://via.placeholder.com/300x250"
+                alt="Ad Placeholder"
+                style="width: 100%; height: 300px"
+              />
+
+               AdSense script 
+              <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3335560316738673"
+                crossorigin="anonymous"
+              ></script>
+
+               Google AdSense ad slot
+              <ins
+                class="adsbygoogle"
+                style="display: block"
+                data-ad-client="ca-pub-3335560316738673"
+                data-ad-slot="9361555163"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div> 
+
+            <section class="links-section">
+              {% include references-link.html %}
+            </section>
+            <section class="read-more-section">
+              {% include read-more.html %}
+            </section>
+          </article> -->
+        </article>
+      </div>
+
+      <!-- Read More Section -->
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

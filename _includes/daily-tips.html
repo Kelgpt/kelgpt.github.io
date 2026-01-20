@@ -1,0 +1,9 @@
+<div class="daily-tip">
+  <h3>Daily Tips</h3>
+  <hr />
+  {% assign today = 'now' | date: "%j" %}
+  <!-- Day of the year (1-365) -->
+  {% assign tips = site.data.daily-tips %} {% assign tip_index = today | modulo:
+  tips.size %}
+  <p>{{ tips[tip_index].tip }}</p>
+</div>

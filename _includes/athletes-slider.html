@@ -1,0 +1,28 @@
+{% assign athletes = site.data.players[page.athlete-category] %} {% if
+page.model-category %} {% assign athletes = athletes | where: "model",
+page.model-category %} {% endif %} {% if athletes.size > 0 %}
+<h2 class="athlete-title">{{ page.athlete-category|capitalize}}'s Athletes</h2>
+<section
+  class="brands-athlete-container{% unless page.model-category %} Swiper-JS{% endunless %}"
+>
+  <div class="swiper-wrapper">
+    {% for athlete in athletes %}
+    <div class="swiper-slide">
+      <div class="brands-athlete-image">
+        <img
+          src="{{ athlete.image }}"
+          alt="{{ athlete.name }}"
+          class="responsive-image-cover"
+        />
+      </div>
+      <div class="brands-athlete-text">
+        <h4>{{ athlete.name }}</h4>
+        <p>{{ athlete.country }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</section>
+{% endif %}

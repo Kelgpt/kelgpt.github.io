@@ -1,0 +1,270 @@
+.page-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+/* DESCRIPTION */
+.post-description {
+  max-width: 100%; /* Ensure the text does not overflow the container */
+  word-wrap: break-word; /* Break long words to fit the container */
+  word-break: break-word; /* Ensures proper text wrapping */
+}
+.details-section {
+  text-align: center;
+  margin: 15px 0 15px 0;
+}
+/* DETAILS AND TABLES */
+.title-image-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.title-specification-section {
+  width: 100%;
+  display: flex;
+  max-width: 500px;
+  flex-direction: column;
+}
+.post-title {
+  text-align: center;
+  font-size: 2em;
+  margin: 20px;
+}
+
+.specification-content {
+  width: 100%;
+  border-collapse: collapse;
+}
+.post-description,
+.post-author-date-container,
+.specification-content th,
+.specification-content td {
+  padding: 10px !important;
+}
+
+.specification-content th {
+  text-align: left;
+  vertical-align: top;
+}
+
+table.specification-content td {
+  text-align: left;
+  vertical-align: top;
+}
+.table-hr {
+  /* border: 0;
+  height: 1px; */
+  background: #ddd; /* Adjust the color as needed */
+}
+/* CALL TO ACTION LINK */
+.link-wrapper {
+  margin: 10px 0; /* Apply margin to the wrapper */
+}
+.link-wrapper:first-child {
+  margin: 0;
+}
+/* full-content */
+.full-content-ads-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* post-image */
+
+/* pros-short-complete-review-section */
+.pros-short-complete-section {
+  max-width: 1000px;
+  width: 100%;
+}
+/* PROS-CONS */
+.pros-short-section {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  gap: 30px;
+}
+.pros-short-section,
+.complete-review-section,
+.verdict-links-readmore-section {
+  padding: 15px;
+}
+
+.pros-cons-section {
+  display: flex;
+  width: 100%;
+  background-color: #ededed;
+  padding: 20px;
+}
+
+.pros-section,
+.cons-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.pros-title-plus-icon,
+.cons-title-plus-icon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.pros-title-plus-icon img,
+.cons-title-plus-icon img {
+  width: 40px;
+  height: 40px;
+}
+.pros-title,
+.cons-title {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.pros-section ul li,
+.cons-section ul li {
+  max-width: 90%; /* Ensure the text does not overflow the container */
+  word-wrap: break-word; /* Break long words to fit the container */
+  word-break: break-word; /* Ensures proper text wrapping */
+  text-decoration: none;
+  list-style-type: none; /* Optional: Removes default list styling */
+  margin-top: 10px;
+}
+/* SHORT REVIEWS */
+.short-review-section {
+  width: 100%;
+  word-wrap: break-word; /* Break long words to fit the container */
+  word-break: break-word; /* Ensures proper text wrapping */
+  padding: 20px;
+}
+.short-review-title {
+  height: 40px;
+}
+/* complete REVIEWS */
+.complete-review-section {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+
+.complete-review-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 20px 0 20px 0;
+}
+.complete-review-content-wrapper:last-child {
+  margin-bottom: 0; /* Remove bottom margin for the last child */
+  gap: 0;
+}
+
+.complete-review-content-text {
+  width: 60%;
+}
+
+.complete-review-content-image {
+  width: 40%;
+}
+
+/* verdict and links ads */
+
+/* verdict and links */
+.verdict-links-readmore-section {
+  width: 100%; /* Set the width for the verdict text */
+}
+
+.equipment-advertisement-section {
+  width: 30%; /* Set the width for the ad */
+}
+
+/* links */
+.read-more-section {
+  margin: 0 auto;
+  width: 100%;
+}
+/* complete reviews and read more */
+.section-title {
+  margin: 30px 0 10px 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .title-specification-section {
+    padding: 20px;
+  }
+
+  .full-content-ads-section {
+    padding: 0;
+    flex-direction: row;
+    justify-content: start;
+    margin-left: 0;
+  }
+  .equipment-advertisement-section {
+    display: none !important;
+  }
+  .verdict-links-ads-section {
+    padding: 20px;
+  }
+  .post-image img {
+    transform: translateY(
+      calc((1024px - 50px) * -0.2)
+    ); /* Adjust multiplier to control movement */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+  }
+}
+
+@media (max-width: 768px) {
+  .title-image-section {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0;
+    margin: 0 auto;
+  }
+  .pros-short-section,
+  .complete-review-section,
+  .verdict-links-readmore-section {
+    padding: 15px;
+  }
+
+  .title-specification-section {
+    max-width: 100%;
+    flex-direction: column;
+  }
+  .complete-review-content-wrapper {
+    flex-direction: column;
+  }
+  .complete-review-content-text {
+    width: 100%;
+  }
+  .complete-review-content-image {
+    width: 100%;
+  }
+  .full-content-ads-section {
+    flex-direction: column;
+  }
+  .pros-short-section {
+    flex-direction: column;
+  }
+  .post-image img {
+    aspect-ratio: 1 / 1; /* Set aspect ratio to 4:3 on mobile */
+  }
+  .read-more-section {
+    padding: 20px;
+  }
+  .post-image img {
+    transform: none; /* No transform */
+    transition: none; /* Disable the transition */
+  }
+}
+@media screen and (max-width: 480px) {
+  .post-image img {
+    aspect-ratio: auto; /* Change aspect ratio to 16:9 on smaller screens */
+  }
+}

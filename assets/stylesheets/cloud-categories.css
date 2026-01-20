@@ -1,0 +1,48 @@
+.cloud-categories-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.cloud-categories-content {
+  display: flex;
+  flex-wrap: wrap; /* Enable flex-wrap to allow items to wrap */
+  width: auto;
+  max-width: 940px; /* Adjust the width for a larger layout on larger screens */
+  gap: 10px; /* Add space between buttons */
+}
+
+.cloud-categories-button {
+  padding: 10px 20px;
+  background-color: inherit;
+  border: 1px solid #ccc;
+  text-align: center;
+  text-decoration: none;
+  color: var(--header-nav-button-color);
+  box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+}
+/* Adjust for tablets */
+@media screen and (max-width: 1024px) {
+  .cloud-categories-content {
+    max-width: 100%; /* Expand the container for smaller screens */
+  }
+  .button {
+    width: calc(50% - 10px); /* Buttons take 1/2 width on tablets */
+  }
+}
+
+/* Adjust for small screens */
+@media screen and (max-width: 768px) {
+  .button {
+    width: calc(50% - 10px); /* Still 1/2 width for smaller screens */
+  }
+}
+
+/* Adjust for mobile screens */
+@media screen and (max-width: 480px) {
+  .button {
+    width: calc(50% - 10px); /* Still 1/2 width for smaller screens */
+  }
+}

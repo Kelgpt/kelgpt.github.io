@@ -1,0 +1,10 @@
+nav_links:
+  - name: "all"
+    title: "Recent articles"
+    url: "/blog"
+  - name: "guides"
+    title: "Recent guides"
+    url: "/blog/guides"
+  - name: "reviews"
+    title: "Recent reviews"
+    url: "/blog/reviews"

@@ -1,0 +1,120 @@
+<header class="header-container">
+  <nav class="main-header-nav-container">
+    <nav class="main-header-mobile-button">
+      <button class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="mobile-menu-container">
+        <div class="sub-menu-dropdown-container">
+          <div class="sub-menu-dropdown-header">
+            <!-- Home link redirects to the homepage -->
+            <a href="/" class="sub-menu-dropdown-link">Home</a>
+            <!-- Button toggles the sub-menu -->
+          </div>
+
+          <!-- Sub-menu -->
+
+          <div class="sub-menu-dropdown-header">
+            <!-- Home link redirects to the homepage -->
+            <a href="/equipment" class="sub-menu-dropdown-link">Equipment</a>
+            <!-- Button toggles the sub-menu -->
+            <button
+              class="sub-menu-dropdown-button"
+              aria-label="Toggle menu"
+              data-dropdown="equipment-menu"
+            >
+              ▼
+            </button>
+          </div>
+
+          <!-- Sub-menu -->
+          <div id="equipment-menu" class="sub-menu-dropdown-content">
+            <a href="/equipment/racket">Racket</a>
+            <a href="/equipment/shuttlecock">Shuttlecock</a>
+          </div>
+
+          <!--<div class="sub-menu-dropdown-header">
+             Home link redirects to the homepage 
+            <a href="/blog" class="sub-menu-dropdown-link">Articles</a>
+            Button toggles the sub-menu 
+          </div>
+          <div class="sub-menu-dropdown-header">
+             Home link redirects to the homepage 
+            <a href="/news" class="sub-menu-dropdown-link">News</a>
+             Button toggles the sub-menu 
+          </div> -->
+        </div>
+      </ul>
+    </nav>
+    <nav class="main-header-nav-container-left">
+      <a
+        class="header-logo"
+        href="https://racket-review.com/"
+        style="padding: 0px 0px 0px 0px"
+      >
+        <img
+          src="/assets/images/logo/racket-review-logo.webp"
+          alt="racket-review-logo"
+          class="header-logo"
+        />
+      </a>
+    </nav>
+    <nav class="main-header-nav-container-center">
+      <nav
+        class="dekstop-dropdown-container"
+        onmouseout="hideOverlay()"
+        onmouseover="showOverlay()"
+      >
+        <a
+          href="/equipment"
+          class="bottom-border header-nav-button equipment-nav-button"
+        >
+          EQUIPMENT
+        </a>
+        <div class="dekstop-dropdown-content-container">
+          <div class="dekstop-dropdown-content">
+            <a
+              href="/equipment/racket"
+              class="dekstop-dropdown-content-wrapper header-nav-button"
+            >
+              <img
+                src="/assets/images/header-images/badminton-racket-image.webp"
+                alt="racket"
+                class="dekstop-dropdown-content-image dekstop-dropdown-content-image-racket responsive-image-cover"
+              />
+              <div class="dekstop-dropdown-content-text">Racket</div>
+            </a>
+            <a
+              href="/equipment/shuttlecock"
+              class="dekstop-dropdown-content-wrapper header-nav-button"
+            >
+              <img
+                src="/assets/images/header-images/badminton-shuttlecock-image.webp"
+                alt="shuttlecock"
+                class="dekstop-dropdown-content-image responsive-image-contain"
+              />
+              <div class="dekstop-dropdown-content-text">Shuttlecock</div>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- <a
+        class="nav-container-center-article bottom-border header-nav-button"
+        href="/blog"
+        >ARTICLES</a
+      >
+      <a
+        class="nav-container-center-article bottom-border header-nav-button"
+        href="/news"
+        >NEWS</a
+      > -->
+    </nav>
+    <nav class="main-header-nav-container-right"></nav>
+  </nav>
+
+  <div id="overlay"></div>
+</header>

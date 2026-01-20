@@ -1,0 +1,47 @@
+.page-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.about-us-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 20px auto 0 auto;
+  background-color: var(--primary-color);
+  width: 500px;
+}
+
+.about-us-hr {
+  border: solid 1px var(--primary-color);
+  margin: 0 0 10px 0;
+}
+
+.about-us-content {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+.contact-us-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+/* in md file */
+.contact-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-us-question {
+  font-weight: 500;
+}
+.contact-us-email {
+  color: var(--secondary-color);
+}

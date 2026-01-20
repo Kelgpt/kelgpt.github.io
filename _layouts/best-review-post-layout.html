@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head-content.html %}
+    <link
+      href="/assets/stylesheets/best-review-post-style.css"
+      rel="stylesheet"
+    />
+    {% include global-link.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    <div class="page-content">
+      <div class="full-content">
+        <div class="breadcrumbs" style="margin: 25px 0 0 0">
+          {% include breadcrumbs.html%}
+        </div>
+
+        <section class="post-title-section"><h1>{{ page.title }}</h1></section>
+        <section class="post-author-date-container">
+          <span class="post-author-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              width="16"
+              height="16"
+              fill="currentColor"
+            >
+              <path
+                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm89.6 32h-8.7c-21.8 10.3-46 16-72.9 16s-51.1-5.7-72.9-16h-8.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+              />
+            </svg>
+            <span class="post-author-text">{{page.author | capitalize}}</span>
+          </span>
+          <span class="post-date-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              width="16"
+              height="16"
+              fill="currentColor"
+            >
+              <path
+                d="M152 64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H80V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H32C14.3 96 0 110.3 0 128v320c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32h-16V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H320V64c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H152V64zM32 160h384v64H32V160zm0 128h384v160H32V288z"
+              />
+            </svg>
+            <span class="post-author-date">
+              {{ page.date | date: "%Y-%b-%d " }}
+            </span>
+          </span>
+        </section>
+        <section class="post-description-section">
+          {{ page.description }}
+        </section>
+        <figure class="thumbnail-image responsive-image-cover">
+          <img class="thumbnail-image" src="{{ page.thumbnail}}" />
+        </figure>
+
+        {% assign parts = content | split: "<!-- INTRODUCTION -->" %} {% assign
+        parts_introduction = parts[1] | split: "<!-- QUICKLIST -->" %} {% assign
+        parts_quicklist = parts_introduction[1] | split: "<!-- FULL_SUMMARY -->"%}
+        {% assign introduction = parts_introduction[0] %} {% assign quick_list=
+        parts_quicklist[0] %} {% assign full_summary = parts_quicklist[1] %}
+
+        <section class="introduction-section">
+          <p>{{introduction}}</p>
+        </section>
+        <section class="quick-list-section">
+          <h2>QUICKLIST</h2>
+          <div class="quick-list-content">{{quick_list}}</div>
+        </section>
+
+        <section class="review-content-section">{{full_summary}}</section>
+
+        <section class="read-more-section">
+          {% include read-more.html %}
+        </section>
+      </div>
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>

@@ -1,0 +1,94 @@
+.athlete-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.brands-athlete-container {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.brands-athlete-container .swiper-wrapper {
+  width: 100%;
+  margin: 25px 0 25px 0;
+}
+
+.brands-athlete-container .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.brands-athlete-image {
+  width: 250px;
+  height: 250px;
+}
+
+.brands-athlete-text {
+  width: 250px;
+  text-align: center;
+}
+
+/* Athlete-specific swiper button styles */
+.brands-athlete-container .swiper-button-next,
+.brands-athlete-container .swiper-button-prev {
+  border-radius: 2px;
+  background-color: rgba(41, 44, 46, 0.7);
+  transform: translateY(-50%);
+  color: #28eb32 !important;
+}
+
+.brands-athlete-container .swiper-button-next:after,
+.brands-athlete-container .swiper-button-prev:after {
+  font-size: 20px !important;
+}
+
+/* Position the arrows on either side of the container */
+.brands-athlete-container .swiper-button-next {
+  right: 0px;
+}
+
+.brands-athlete-container .swiper-button-prev {
+  left: 0px;
+}
+@media screen and (max-width: 1024px) {
+  .brands-athlete-container {
+    margin: 0 auto !important;
+    width: 95% !important;
+  }
+
+  .brands-athlete-container .swiper-button-next {
+    right: 0px !important;
+  }
+
+  .brands-athlete-container .swiper-button-prev {
+    left: 0px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .brands-athlete-container {
+    margin: 0 auto !important;
+    width: 80% !important;
+  }
+
+  .brands-athlete-container .swiper-button-next {
+    right: 0px !important;
+  }
+
+  .brands-athlete-container .swiper-button-prev {
+    left: 0px !important;
+  }
+}
+@media (max-width: 480px) {
+  .brands-athlete-container {
+    margin: 0 auto;
+    width: 80% !important;
+  }
+}

@@ -1,0 +1,47 @@
+<header class="section-title">
+  <h2 class="read-more-title">Read More</h2>
+</header>
+{% assign all_posts = site.blog | concat: site.product %} {% assign all_posts_1
+= all_posts | concat: site.news %} {% assign sorted_posts = all_posts_1 | sort:
+'date' | reverse %}
+<!-- Sorting by date, most recent first -->
+
+<section class="read-more-grid-section">
+  {% assign counter = 0 %} {% for post in sorted_posts limit: 12 %} {% if
+  post.url != page.url %} {% assign counter = counter | plus: 1 %}
+  <!-- Regular post -->
+  <a href="{{ post.url }}" class="read-more-wrapper">
+    {% if post.categories %} {% assign primary_category = post.categories[0] %}
+    <div class="category-label">{{ primary_category | upcase }}</div>
+    {% endif %}
+    <figure class="read-more-image">
+      <img
+        data-src="{{ post.thumbnail }}"
+        src=""
+        alt="{{ post.title }}"
+        class="lazy responsive-image-cover"
+      />
+    </figure>
+    <div>
+      <h3 class="read-more-text">{{ post.title }}</h3>
+    </div>
+  </a>
+
+  <!-- Insert Ad after every 3 posts -->
+  {% if counter == 4%}
+  <a href="/your-ad-url" class="read-more-wrapper">
+    <div class="category-label">Sponsored</div>
+    <figure class="read-more-image">
+      <img
+        data-src="/assets/images/a.png"
+        src=""
+        alt="Ad"
+        class="lazy responsive-image-cover"
+      />
+    </figure>
+    <div class="read-more-text">
+      <h3>Ad Title</h3>
+    </div>
+  </a>
+  {% assign counter = 0 %} {% endif %} {% endif %} {% endfor %}
+</section>

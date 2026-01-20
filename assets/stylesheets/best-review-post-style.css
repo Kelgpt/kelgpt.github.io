@@ -1,0 +1,126 @@
+.page-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.full-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+}
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+}
+.quick-list-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.quick-list-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  height: 100%; /* Adjust the height as needed */
+  align-items: center;
+}
+.quick-list-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 10px;
+}
+.quick-list-content-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.quick-list-content-text {
+  text-align: center;
+  color: var(--bottom-review-text-color);
+  text-decoration: none;
+}
+/* FULL REVIEW */
+.review-content-section {
+  width: 100%;
+}
+
+.review-content-image {
+  width: 100%;
+  height: auto;
+}
+.review-content-hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
+}
+.review-content-text {
+  margin-top: 20px;
+}
+/* SPECIFICATION */
+.review-content-specification {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.review-content-specification-container {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-content-specification-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.review-content-specification-title {
+  flex-basis: 120px; /* Adjust this value based on your desired width */
+  flex-shrink: 0;
+}
+
+.review-content-specification-content {
+  flex-grow: 1;
+}
+
+/* SUMMARY */
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+h2,
+h3,
+p {
+  margin: 10px 0 10px 0 !important;
+}
+@media (max-width: 1024px) {
+  .ads-section {
+    display: none !important;
+  }
+  .page-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+  }
+}
+/* Show the hamburger icon on smaller screens */
+@media (max-width: 768px) {
+}
+/* Mobile adjustments (for devices up to 480px) */
+@media (max-width: 480px) {
+}

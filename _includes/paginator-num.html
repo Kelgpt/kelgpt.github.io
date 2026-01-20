@@ -1,0 +1,56 @@
+{% comment %} Determine the base path {% endcomment %} {% assign base_path =
+page.url | split: '/' | pop | join: '/' | append: '/' %} {% if base_path
+contains 'page' %} {% assign base_path = base_path | split: '/' | pop | join:
+'/' | append: '/' %} {% endif %} {% comment %} Pagination logic {% endcomment %}
+{% if paginator.total_pages > 1 %}
+<nav aria-label="Pagination">
+  <ul class="pager">
+    {% comment %} Previous page link {% endcomment %} {% if
+    paginator.previous_page %}
+    <li class="paginator-arrow">
+      <a
+        href="{{ base_path }}{% if paginator.previous_page != 1 %}page{{ paginator.previous_page }}/{% endif %}"
+        class="paginator-link"
+        >&#8249;</a
+      >
+    </li>
+    {% else %}
+    <li class="paginator-arrow disabled">
+      <span class="paginator-link" aria-hidden="true">&#8249;</span>
+    </li>
+    {% endif %} {% comment %} Page number links {% endcomment %} {% assign
+    page_start = paginator.page | minus: 2 %} {% assign page_end =
+    paginator.page | plus: 2 %} {% if page_start < 1 %} {% assign page_start = 1
+    %} {% assign page_end = page_end | plus: 1 %} {% endif %} {% if page_end >
+    paginator.total_pages %} {% assign page_end = paginator.total_pages %} {%
+    endif %} {% for page in (page_start..page_end) %} {% if page ==
+    paginator.page %}
+    <li class="paginator-num active" aria-current="page">
+      <span class="paginator-link">{{ page }}</span>
+    </li>
+    {% else %}
+    <li class="paginator-num">
+      <a
+        href="{{ base_path }}{% if page != 1 %}page{{ page }}/{% endif %}"
+        class="paginator-link"
+        >{{ page }}</a
+      >
+    </li>
+    {% endif %} {% endfor %} {% comment %} Next page link {% endcomment %} {% if
+    paginator.next_page %}
+    <li class="paginator-arrow">
+      <a
+        href="{{ base_path }}page{{ paginator.next_page }}/"
+        class="paginator-link"
+        aria-label="Next"
+        >&#8250;</a
+      >
+    </li>
+    {% else %}
+    <li class="paginator-arrow disabled">
+      <span class="paginator-link" aria-hidden="true">&#8250;</span>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}

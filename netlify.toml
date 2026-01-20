@@ -1,0 +1,14 @@
+[build]
+  publish = "_site"
+  command = ""  # Remove the build command since we build in GitHub Actions
+
+[build.processing]
+  skip_processing = true
+
+# Explicitly ignore the drafts branch
+[context.drafts]
+  ignore = "true"
+
+# Add a specific condition to prevent builds if certain files change
+[context.production.condition]
+  exclude_files = ["_drafts/**"]

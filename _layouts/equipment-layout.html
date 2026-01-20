@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head-content.html %}
+    <link href="/assets/stylesheets/equipment-filter.css" rel="stylesheet" />
+
+    <link
+      href="/assets/stylesheets/equipment-layout-style.css"
+      rel="stylesheet"
+    />
+    <link href="/assets/stylesheets/athlete-slider.css" rel="stylesheet" />
+
+    {% include global-link.html %}
+    <script src="/assets/scripts/athlete_slider.js" defer></script>
+    <script src="/assets/scripts/filter-bar.js" defer></script>
+  </head>
+  <body>
+    {% include header.html %} {%include hero-image.html%}
+
+    <div class="page-content">
+      <section class="equipment-body-section">
+        <div class="breadcrumbs" style="margin: 30px 0 30px 30px">
+          <a href="{{ site.baseurl }}/">Home</a> / {% assign segments = page.url
+          | split: '/' %} {% for segment in segments %} {% if segment != "" and
+          forloop.last == false %} {% assign url = "" %} {% for i in
+          (0..forloop.index0) %} {% assign url = url | append: segments[i] |
+          append: "/" %} {% endfor %}
+          <a href="{{ site.baseurl }}{{ url }}"
+            >{{ segment | replace: "-", " " | capitalize }}</a
+          >
+          / {% endif %} {% endfor %}
+          <!-- This will display the title without a link -->
+        </div>
+        {% include athletes-slider.html %}
+        <!--product search-->
+        <div class="search-product-container">
+          {%include equipment-filter-content.html%}
+          <!-- products -->
+          <div class="equipment-pagination-section">
+            <section class="equipment-grid-content-section">
+              {% if paginator.posts.size > 0 %} {% for product in
+              paginator.posts %} {% if product.date <= site.time %}
+              <a href="{{ product.url }}">
+                <div class="equipment-grid-content-wrapper">
+                  <figure class="equipment-grid-content-image">
+                    <!-- Image with lazy loading -->
+                    <img
+                      data-src="{{ product.image_url }}"
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBA=="
+                      alt="{{ product.title }}"
+                      class="lazy responsive-image-cover"
+                    />
+                  </figure>
+                  <div class="equipment-grid-content-text">
+                    <h3>{{ product.title | upcase}}</h3>
+                  </div>
+                </div>
+              </a>
+              {% endif %}{% endfor %} {% else %}
+              <p class="no-recent-text">No recent posts available.</p>
+              {% endif %}
+            </section>
+            {% include paginator-num.html %}
+          </div>
+        </div>
+      </section>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

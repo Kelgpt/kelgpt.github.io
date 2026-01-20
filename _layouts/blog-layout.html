@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head-content.html %}
+    <link href="/assets/stylesheets/blog-layout-style.css" rel="stylesheet" />
+
+    <link href="/assets/stylesheets/cloud-categories.css" rel="stylesheet" />
+    {% include global-link.html %}
+  </head>
+  <body>
+    {% include header.html %}
+
+    <div class="page-container">
+      <div class="title-wrapper-section">
+        {% assign current_url = page.url %} {% assign title = "" %} {% for
+        cloud-category in site.data.blog-cloud.nav_links %} {% if current_url
+        contains cloud-category.url %} {% assign title = cloud-category.title |
+        upcase %} {% endif %} {% endfor %} {% if title != "" %}
+        <h1>{{ title }}</h1>
+        {% endif %}
+      </div>
+
+      {%include blog-cloud-categories.html%}
+
+      <div class="news-ads-body">
+        <div class="ads-section"></div>
+        <article class="news-content">
+          {% if paginator.posts.size > 0 %}{% for post in paginator.posts%} {%
+          if post.date <= site.time %}
+          <a href="{{ post.url }}" class="news-content-wrapper">
+            {%include blogpost-posts.html%}
+          </a>
+          <hr class="news-hr" />
+          {% endif %} {% endfor %} {% else %}
+          <p class="no-recent-text">No recent posts available.</p>
+          {% endif %} {% include paginator-num.html %}
+        </article>
+        <div class="ads-section"></div>
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
